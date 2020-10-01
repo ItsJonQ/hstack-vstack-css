@@ -1,0 +1,126 @@
+/* DESIGN TOKENS */
+:root {
+	--grid: 4px;
+}
+
+/* RESETS */
+body {
+	margin: 0;
+	padding: 40px;
+}
+
+/* COMPONENTS */
+.flex {
+	--spacing: 4px;
+	--direction: row;
+	--align: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: var(--align);
+	flex-direction: var(--direction);
+}
+
+.flex > * + * {
+	margin-left: var(--spacing);
+}
+
+.hstack {
+	--direction: row;
+}
+
+.vstack {
+	--align: stretch;
+	--direction: column;
+}
+
+.vstack > * + * {
+	margin-left: unset;
+	margin-top: var(--spacing);
+}
+
+.spacer {
+	flex: 1;
+}
+
+/* MODIFIERS */
+.--sp1 {
+	--spacing: calc(var(--grid) * 1);
+}
+.--sp2 {
+	--spacing: calc(var(--grid) * 2);
+}
+.--sp3 {
+	--spacing: calc(var(--grid) * 3);
+}
+.--sp4 {
+	--spacing: calc(var(--grid) * 4);
+}
+.--sp5 {
+	--spacing: calc(var(--grid) * 5);
+}
+.--sp6 {
+	--spacing: calc(var(--grid) * 6);
+}
+
+.--top {
+	--align: flex-start;
+}
+
+.--left {
+	justify-content: flex-start;
+}
+.--center {
+	justify-content: center;
+}
+.--right {
+	justify-content: flex-end;
+}
+.--edge {
+	justify-content: space-between;
+}
+
+.--center-v {
+	--align: center;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 40em) {
+	.--vs\@md {
+		--align: stretch;
+		--direction: column;
+	}
+	.--vs\@md > * + * {
+		margin-left: unset;
+		margin-top: var(--spacing);
+	}
+}
+@media (min-width: 60em) {
+	.--vs\@lg {
+		--align: stretch;
+		--direction: column;
+	}
+	.--vs\@lg > * + * {
+		margin-left: unset;
+		margin-top: var(--spacing);
+	}
+}
+
+@media (min-width: 40em) {
+	.--hs\@md {
+		--direction: row;
+	}
+	.--hs\@md > * + * {
+		margin-top: unset;
+		margin-left: var(--spacing);
+	}
+}
+@media (min-width: 60em) {
+	.--hs\@lg {
+		--direction: row;
+	}
+	.--hs\@lg > * + * {
+		margin-top: unset;
+		margin-left: var(--spacing);
+	}
+}
