@@ -4,6 +4,8 @@
 
 ## Usage
 
+✌️ Check out the **[code here](https://github.com/ItsJonQ/hstack-vstack-css/blob/master/src/styles.css)**.
+
 ### Horizontally Stacking
 
 The `.spacer` is used in the (below) example to push the items apart.
