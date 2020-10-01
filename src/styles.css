@@ -3,13 +3,8 @@
 	--grid: 4px;
 }
 
-/* RESETS */
-body {
-	margin: 0;
-	padding: 40px;
-}
-
 /* COMPONENTS */
+/* The primary layout component that powers HStack and VStack */
 .flex {
 	--spacing: 4px;
 	--direction: row;
@@ -20,29 +15,34 @@ body {
 	flex-direction: var(--direction);
 }
 
+/* Adjust the spacing of all (immediate) inner children */
 .flex > * + * {
 	margin-left: var(--spacing);
 }
 
+/* Horizontally stack items in line. */
 .hstack {
 	--direction: row;
 }
 
+/* Vertically stack items on top of each other. */
 .vstack {
 	--align: stretch;
 	--direction: column;
 }
-
+/* Adjust spacing for vertically stacking items */
 .vstack > * + * {
 	margin-left: unset;
 	margin-top: var(--spacing);
 }
 
+/* Adaptive take up space within a stack, used for content or for pushing items. */
 .spacer {
 	flex: 1;
 }
 
 /* MODIFIERS */
+/* Adjusts spacing between items */
 .--sp1 {
 	--spacing: calc(var(--grid) * 1);
 }
@@ -62,10 +62,10 @@ body {
 	--spacing: calc(var(--grid) * 6);
 }
 
+/* Adjusts alignment of items within a stack. */
 .--top {
 	--align: flex-start;
 }
-
 .--left {
 	justify-content: flex-start;
 }
@@ -79,47 +79,48 @@ body {
 	justify-content: space-between;
 }
 
-.--center-v {
+/* Vertically center items in a VStack */
+.--v-center {
 	--align: center;
 }
 
 /* RESPONSIVE */
-
+/* Responsive styles to swap between HStack and VStack for tablet/desktop */
 @media (min-width: 40em) {
-	.--vs\@md {
+	.vstack\@md {
 		--align: stretch;
 		--direction: column;
 	}
-	.--vs\@md > * + * {
+	.vstack\@md > * + * {
 		margin-left: unset;
 		margin-top: var(--spacing);
 	}
 }
 @media (min-width: 60em) {
-	.--vs\@lg {
+	.vstack\@lg {
 		--align: stretch;
 		--direction: column;
 	}
-	.--vs\@lg > * + * {
+	.vstack\@lg > * + * {
 		margin-left: unset;
 		margin-top: var(--spacing);
 	}
 }
 
 @media (min-width: 40em) {
-	.--hs\@md {
+	.hstack\@md {
 		--direction: row;
 	}
-	.--hs\@md > * + * {
+	.hstack\@md > * + * {
 		margin-top: unset;
 		margin-left: var(--spacing);
 	}
 }
 @media (min-width: 60em) {
-	.--hs\@lg {
+	.hstack\@lg {
 		--direction: row;
 	}
-	.--hs\@lg > * + * {
+	.hstack\@lg > * + * {
 		margin-top: unset;
 		margin-left: var(--spacing);
 	}

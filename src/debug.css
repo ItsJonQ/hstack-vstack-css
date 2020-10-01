@@ -1,0 +1,16 @@
+/* Add this class see an outline (and description) of HTML elements */
+
+.debug * {
+	outline: 1px solid rgba(0, 0, 255, 0.25);
+	position: relative;
+}
+
+.debug *::before {
+	content: attr(class);
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin-top: -10px;
+	font-size: 10px;
+	color: rgba(0, 0, 255, 0.25);
+}
